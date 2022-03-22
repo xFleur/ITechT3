@@ -34,6 +34,10 @@ def twitter_demo():
     game.participant_answer("I am not going to tell you")
     time.sleep(.5)
     game.participant_answer("I am niNe years old")
+    time.sleep(.5)
+    game.participant_answer("I like to play at the playground with my friend Josh")
+    time.sleep(.5)
+    game.participant_answer("I really really love names")
 
     # # connect to api with apikeys
     # # if you don't have apikeys, go to apps.twitter.com
