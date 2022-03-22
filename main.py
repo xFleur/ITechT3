@@ -24,12 +24,16 @@ $ pip install python-twitter
 
 def twitter_demo():
     game = GameInstance('Henk')
-    time.sleep(3)
-    game.participant_answer("SuRE")
-    time.sleep(3)
+    time.sleep(.5)
+    game.participant_answer("Yes")
+    time.sleep(.5)
+    game.participant_answer("No")
+    time.sleep(.5)
+    game.participant_answer("Yes")
+    time.sleep(.5)
     game.participant_answer("I am not going to tell you")
-    time.sleep(3)
-    game.participant_answer("I am Twelve years old")
+    time.sleep(.5)
+    game.participant_answer("I am niNe years old")
 
     # # connect to api with apikeys
     # # if you don't have apikeys, go to apps.twitter.com
