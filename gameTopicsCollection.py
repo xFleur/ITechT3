@@ -1,6 +1,6 @@
 from GuessWord import GuessWord
 
-RANDOM_NAME_1 = GuessWord('Henk',
+RANDOM_NAME_1 = GuessWord('henk',
                           [
                               "Hij is kaal",
                               "Zijn achternaam is maathuis",
@@ -9,7 +9,7 @@ RANDOM_NAME_1 = GuessWord('Henk',
                               "Zijn step is geel met blauwe wielen (vet lelijk)",
                           ]
                           )
-RANDOM_NAME_2 = GuessWord('Barry',
+RANDOM_NAME_2 = GuessWord('barry',
                           [
                               "Hij is super hip",
                               "Hij houdt van disco dip op zijn ijsjes",
@@ -19,7 +19,7 @@ RANDOM_NAME_2 = GuessWord('Barry',
                           ]
                           )
 
-RANDOM_COLOR_1 = GuessWord('Paars',
+RANDOM_COLOR_1 = GuessWord('paars',
                            [
                                "Het is niet geel",
                                "Het is niet oranje",

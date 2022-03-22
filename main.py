@@ -38,6 +38,20 @@ def twitter_demo():
     game.participant_answer("I like to play at the playground with my friend Josh")
     time.sleep(.5)
     game.participant_answer("I really really love names")
+    time.sleep(.5)
+    game.participant_answer("Can I have another hint?")
+    time.sleep(.5)
+    game.participant_answer("One more hint please?")
+    time.sleep(.5)
+    game.participant_answer("One more hint please?")
+    time.sleep(.5)
+    game.participant_answer("Is it hans?")
+    time.sleep(.5)
+    game.participant_answer("Is it Henk")
+    time.sleep(.5)
+    game.participant_answer("Henk")
+    time.sleep(.5)
+    game.participant_answer("Barry")
 
     # # connect to api with apikeys
     # # if you don't have apikeys, go to apps.twitter.com

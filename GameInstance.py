@@ -9,6 +9,7 @@ from sendTweetHandler import sendTweet
 GAME_STATUS_INIT = "init"
 GAME_STATUS_ALIGN = "align"
 GAME_STATUS_GUESS = "guess"
+GAME_STATUS_DONE = "done"
 
 AGE_THRESHOLD_KID = 10
 AGE_THRESHOLD_ADOLESCENT = 23
@@ -25,6 +26,7 @@ class GameInstance:
     playerAgeGroup = None
     # This is the question number of the current phase. Whenever you switch to a new phase, the question counter resets.
     questionNumber = 0
+    currentScore = 25000
 
     activeWord = None
 
@@ -47,9 +49,11 @@ class GameInstance:
         elif self.gameStatus == GAME_STATUS_ALIGN and self.questionNumber == 0:
             self.ask_for_age(lowercase_answer)
         elif self.gameStatus == GAME_STATUS_ALIGN and self.questionNumber == 1:
-            self.handel_personal_question_answer(answer)
+            self.handel_personal_question_answer(lowercase_answer)
         elif self.gameStatus == GAME_STATUS_ALIGN and self.questionNumber == 2:
-            self.pick_category(answer)
+            self.pick_category(lowercase_answer)
+        elif self.gameStatus == GAME_STATUS_GUESS:
+            self.guess(lowercase_answer)
 
     def introduce_game(self, answer):
         if answer_is_yes(answer):
@@ -120,19 +124,19 @@ class GameInstance:
             elif "home" in answer:
                 sendTweet("I bet you live in a cool home!")
                 topics = KID_TOPICS_HOME
-        if self.playerAgeGroup == USER_ADOLESCENT:
+        elif self.playerAgeGroup == USER_ADOLESCENT:
             topics = ADOLESCENT_TOPICS_NETFLIX
             if "music" in answer:
                 sendTweet("I knew it! Everyone likes music")
                 topics = ADOLESCENT_TOPICS_MUSIC
             elif "netflix" in answer:
                 sendTweet("I knew it! Every one likes netflix!")
-        if self.playerAgeGroup == USER_ADULT:
+        elif self.playerAgeGroup == USER_ADULT:
+            # TODO Add the responses for adults here.
             if "pizza" in answer:
                 topics = ADULT_TOPICS_PIZZA
             if "dinner" in answer:
                 topics = ADULT_TOPICS_DINNER
-
 
         self.questionNumber += 1
         sendTweet(f"I think that I know you a bit better now. I think that you might be interested in the following "
@@ -156,4 +160,22 @@ class GameInstance:
         self.activeWord = random.choice(selected_topic)
         if self.activeWord is not None:
             self.gameStatus = GAME_STATUS_GUESS
-            print(self.activeWord.word)
+            sendTweet(f"I've got a word in my mind! 🧠🧠 #inMyBrainButNotInYours. "
+                      f"The first hint that you get is '{self.activeWord.get_random_hint()}'")
+
+    def guess(self, answer):
+
+        if self.activeWord.word == answer:
+            sendTweet("That is correct!!! #youarethebest #winnerwinnerchickendinner. That was fun! #gamemeesterRules #no1")
+            sendTweet(f"Your amazing score is: {self.currentScore} points! #wow #impressive #cool #neverbeendonebe4 score")
+            self.gameStatus = GAME_STATUS_DONE
+        elif self.activeWord.word in answer:
+            sendTweet("You are really close, your answer contains the correct word")
+            self.currentScore -= 100
+        elif "hint" in answer or "tip" in answer:
+            sendTweet(f"Okay, here is another hint: '{self.activeWord.get_random_hint()}'")
+            self.currentScore -= 1000
+        else:
+            sendTweet("That is not correct, but you were close but not close enough #almostThere. Do you want to try "
+                      "again #repeat, or do you need a hint? ")
+            self.currentScore -= 500
