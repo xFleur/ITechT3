@@ -1,5 +1,6 @@
 from GuessWord import GuessWord
 
+# TODO all these cases are test cases. They need to be redone with actual content.
 RANDOM_NAME_1 = GuessWord('henk',
                           [
                               "Hij is kaal",

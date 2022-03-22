@@ -152,6 +152,7 @@ class GameInstance:
     def pick_category(self, answer):
         selected_topic = []
 
+        # TODO these need to be updated to real topics and topics for adults and adolescents need to be added
         if "name" in answer:
             selected_topic = GAME_TOPIC_NAMES
         elif "color" in answer:
@@ -164,10 +165,11 @@ class GameInstance:
                       f"The first hint that you get is '{self.activeWord.get_random_hint()}'")
 
     def guess(self, answer):
-
+        # TODO Maybe add a bit of variation to the answers that the bot can give by randomizing the types of
+        #  responses he can give.
         if self.activeWord.word == answer:
             sendTweet("That is correct!!! #youarethebest #winnerwinnerchickendinner. That was fun! #gamemeesterRules #no1")
-            sendTweet(f"Your amazing score is: {self.currentScore} points! #wow #impressive #cool #neverbeendonebe4 score")
+            sendTweet(f"Your amazing score is: {self.currentScore} points! #wow #impressive #cool #neverbeendonebe4 score. Thanks for playing!")
             self.gameStatus = GAME_STATUS_DONE
         elif self.activeWord.word in answer:
             sendTweet("You are really close, your answer contains the correct word")
