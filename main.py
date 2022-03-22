@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+import time
+import twitter #for docs, see https://python-twitter.readthedocs.io/en/latest/twitter.html
+
 '''
 USE AT YOUR OWN PERIL <3
 fill in your API keys before running the script
@@ -16,9 +19,6 @@ $ pip install python-twitter
 3. obtain API keys from twitter
 4. fill them in in the script below
 '''
-
-import time
-import twitter #for docs, see https://python-twitter.readthedocs.io/en/latest/twitter.html
 
 def twitter_demo():
     # connect to api with apikeys
