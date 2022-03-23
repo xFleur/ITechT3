@@ -19,20 +19,20 @@ USER_ADOLESCENT = "adolescent"
 USER_ADULT = "adult"
 
 CLOSE_ANSWERS = [
-    "You are really close 🔥🔥, your answer contains the correct word #soCloseButYetSoFarAway 🎯",
-    "Almost there, the correct word is in your answer 🔥🔥",
-    "Almost there, here is a free 🆓🆓 hint #winning: You have already named the correct word in your previous answer."
+    "You are really close 🔥🔥, your answer contains the correct word #soCloseButYetSoFarAway 🎯!",
+    "Almost there, the correct word is in your answer 🔥🔥!",
+    "Almost there, here is a free 🆓🆓 hint #winning: You have already named the correct word in your previous answer!"
 ]
 
 WONG_ANSWERS = [
     "That is not correct ❌❌, however, you were close ✅✅ but not close enough #almostThere. Do you want to try "
     "again #repeat, or do you need a hint 🕵️🕵️?",
     "That was not the right answer ❌❌, you should try again ✅✅! Or you can ask for a hint 🕵️🕵️ and we will give you "
-    "one #youreWelcome #noProblem",
+    "one! #youreWelcome #noProblem",
 ]
 
 HINT_TEXT = [
-    "Okay, here is another hint #oneStepCloser ✅🎉:",
+    "Okay, here is another hint #oneStepCloser! ✅🎉:",
     "Another hint, smart move #hintHunt 🧠🧠! here you go:",
     "You ask, we deliver #deliveryGuy #fasterThanDhl 🚚🚚! here you go:"
 ]
@@ -146,34 +146,37 @@ class GameInstance:
             send_tweet(f"{self.playerAge} was my favorite age 😎😎! When meeting friends 👯👯‍️, do you watch Netflix "
                       f"📺 or do you play music 🎧🎤 together? #newestepisodeofriverdale #karaoke", self.name, answer)
         elif self.playerAgeGroup == USER_ADULT:
-            send_tweet("Quick question! Pizza 🍕🍕 or 3-course dinner 🍽🍽?", self.name, answer)
+            send_tweet(f"What a coincidence 😀 I just turned {self.playerAge}! Quick question! Pizza 🍕🍕 or 3-course "
+                       f"dinner 🍽🍽? #yummy", self.name, answer)
 
     def handel_personal_question_answer(self, answer):
         topics = []
         if self.playerAgeGroup == USER_KID:
             if "playground" in answer:
-                send_tweet("Cool! I like the playground too!", self.name, answer)
+                send_tweet("Oooh, the playground?!? Really adventurous, aren’t you! #adventure", self.name, answer)
                 topics = KID_TOPICS_PLAYGROUND
             elif "home" in answer:
-                send_tweet("I bet you live in a cool home!", self.name, answer)
+                send_tweet(" I also like to stay at home; All of my drawings are there! #drawingIsCool #stayAtHomeMom", self.name, answer)
                 topics = KID_TOPICS_HOME
         elif self.playerAgeGroup == USER_ADOLESCENT:
             topics = ADOLESCENT_TOPICS_NETFLIX
             if "music" in answer:
-                send_tweet("I knew it! Everyone likes music", self.name, answer)
+                send_tweet("I knew it! Everyone likes music 🎤💃 #musicRocks", self.name, answer)
                 topics = ADOLESCENT_TOPICS_MUSIC
             elif "netflix" in answer:
-                send_tweet("I knew it! Every one likes Netflix!", self.name, answer)
+                send_tweet("I knew it! Every one likes Netflix! 📺📺 #tellynights", self.name, answer)
         elif self.playerAgeGroup == USER_ADULT:
             # TODO Add the responses for adults here.
             if "pizza" in answer:
                 topics = ADULT_TOPICS_PIZZA
+                send_tweet("Dit moet nog", self.name, answer)
             if "dinner" in answer:
                 topics = ADULT_TOPICS_DINNER
+                send_tweet("Dit moet nog", self.name, answer)
 
         self.questionNumber += 1
-        send_tweet(f"I think that I know you a bit better now. I think that you might be interested in the following "
-                  f"topics, which one do you like best, {array_to_sum_of_words(topics)}?", self.name, answer)
+        send_tweet(f"I think that I know you a bit better now 🕵️🕵️. I think that you might be interested in the "
+                   f"following topics , which one do you like best 🙌🙌, {array_to_sum_of_words(topics)}?", self.name, answer)
 
     def reset(self):
         self.name = ""
@@ -200,12 +203,14 @@ class GameInstance:
     def guess(self, answer):
         if self.activeWord.word == answer:
             send_tweet(
-                "That is correct!!! #youarethebest #winnerwinnerchickendinner. That was fun! #gamemeesterRules #no1",
+                "That is correct!!! 🎉🎉🥳💯💯 #youarethebest #winnerwinnerchickendinner. That was fun! "
+                "#gamemeesterRules #no1",
                 self.name,
                 answer
             )
             send_tweet(
-                f"Your amazing score is: {self.currentScore} points! #wow #impressive #cool #neverbeendonebe4 score. "
+                f"Your amazing score is: {self.currentScore} points 🔥🔥! #wow #impressive #cool #neverbeendonebe4 "
+                f"score. "
                 f"Thanks for playing!", self.name, answer)
             self.gameStatus = GAME_STATUS_DONE
         elif self.activeWord.word in answer:
