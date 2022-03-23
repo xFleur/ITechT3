@@ -172,10 +172,13 @@ class GameInstance:
             # TODO Add the responses for adults here.
             if "pizza" in answer:
                 topics = ADULT_TOPICS_PIZZA
-                send_tweet("Dit moet nog", self.name, answer)
+                send_tweet("I love pizza to! I would eat it every day but you've got to stay healthy right? 🏥🍎🍏 ",
+                           self.name,
+                           answer
+                           )
             if "dinner" in answer:
                 topics = ADULT_TOPICS_DINNER
-                send_tweet("Dit moet nog", self.name, answer)
+                send_tweet("Oooh look at you, the fancy dinner kind of person! I like it 🔥🔥", self.name, answer)
 
         self.questionNumber += 1
         send_tweet(f"I think that I know you a bit better now 🕵️🕵️. I think that you might be interested in the "
