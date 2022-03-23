@@ -65,7 +65,7 @@ class GameInstance:
                 break
 
         send_tweet(f"{greet_word}, {self.name}! Welcomeeeeeee to the 30 second quiz 🎉🎉 #fun #beatyourfriends do you "
-                  f"want to play?", self.name, lowercase_answer)
+                   f"want to play?", self.name, lowercase_answer)
 
     def participant_answer(self, answer):
         print("PLAYER: " + answer)
@@ -86,7 +86,7 @@ class GameInstance:
     def introduce_game(self, answer):
         if answer_is_yes(answer):
             send_tweet(
-                "Okay let's go 🏎! But first, here are some rules #boring 📚🥱🥱: Blablabla, is everything clear?",
+                "Okay let's go 🏎! But first, here are some rules #boring 📚🥱🥱: Add the mention @QuizMeester each time you reply; Write a reply to the last message of the @QuizMeester, is everything clear?",
                 self.name,
                 answer
             )
@@ -100,14 +100,16 @@ class GameInstance:
             self.start_align(answer)
 
         else:
-            send_tweet("Okay, let me repeat myself #noproblem. The rules are blablalablalba. Do you get it now? 📚📚",
-                       self.name, answer)
+            send_tweet(
+                "Okay, let me repeat myself #noproblem. The rules are Add the mention @QuizMeester each time you "
+                "reply; Write a reply to the last message of the @QuizMeester. Do you get it now? 📚📚",
+                self.name, answer)
 
     def start_align(self, answer):
         self.gameStatus = GAME_STATUS_ALIGN
         self.questionNumber = 0
         send_tweet("#Sweet 🍰🍰! Let me ask you some personal questions first, so that I can think of fitting "
-                  "categories for you! #gettingToKnowEachOther #personal 👥👥", self.name, answer)
+                   "categories for you! #gettingToKnowEachOther #personal 👥👥", self.name, answer)
 
     def ask_for_age(self, answer):
         self.playerAge = self.get_number_from_string(answer)
@@ -141,10 +143,10 @@ class GameInstance:
     def ask_personal_question(self, answer):
         if self.playerAgeGroup == USER_KID:
             send_tweet(f"Already {self.playerAge}?! And are you playing most of the time at the playground or at home? "
-                      f"#funTimes 😎😎", self.name, answer)
+                       f"#funTimes 😎😎", self.name, answer)
         elif self.playerAgeGroup == USER_ADOLESCENT:
             send_tweet(f"{self.playerAge} was my favorite age 😎😎! When meeting friends 👯👯‍️, do you watch Netflix "
-                      f"📺 or do you play music 🎧🎤 together? #newestepisodeofriverdale #karaoke", self.name, answer)
+                       f"📺 or do you play music 🎧🎤 together? #newestepisodeofriverdale #karaoke", self.name, answer)
         elif self.playerAgeGroup == USER_ADULT:
             send_tweet(f"What a coincidence 😀 I just turned {self.playerAge}! Quick question! Pizza 🍕🍕 or 3-course "
                        f"dinner 🍽🍽? #yummy", self.name, answer)
@@ -156,7 +158,8 @@ class GameInstance:
                 send_tweet("Oooh, the playground?!? Really adventurous, aren’t you! #adventure", self.name, answer)
                 topics = KID_TOPICS_PLAYGROUND
             elif "home" in answer:
-                send_tweet(" I also like to stay at home; All of my drawings are there! #drawingIsCool #stayAtHomeMom", self.name, answer)
+                send_tweet(" I also like to stay at home; All of my drawings are there! #drawingIsCool #stayAtHomeMom",
+                           self.name, answer)
                 topics = KID_TOPICS_HOME
         elif self.playerAgeGroup == USER_ADOLESCENT:
             topics = ADOLESCENT_TOPICS_NETFLIX
@@ -176,7 +179,8 @@ class GameInstance:
 
         self.questionNumber += 1
         send_tweet(f"I think that I know you a bit better now 🕵️🕵️. I think that you might be interested in the "
-                   f"following topics , which one do you like best 🙌🙌, {array_to_sum_of_words(topics)}?", self.name, answer)
+                   f"following topics , which one do you like best 🙌🙌, {array_to_sum_of_words(topics)}?", self.name,
+                   answer)
 
     def reset(self):
         self.name = ""
@@ -198,7 +202,7 @@ class GameInstance:
         if self.activeWord is not None:
             self.gameStatus = GAME_STATUS_GUESS
             send_tweet(f"I've got a word in my mind! 🧠🧠 #inMyBrainButNotInYours. "
-                      f"The first hint that you get is '{self.activeWord.get_random_hint()}'", self.name, answer)
+                       f"The first hint that you get is '{self.activeWord.get_random_hint()}'", self.name, answer)
 
     def guess(self, answer):
         if self.activeWord.word == answer:
