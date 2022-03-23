@@ -37,6 +37,8 @@ HINT_TEXT = [
     "You ask, we deliver #deliveryGuy #fasterThanDhl 🚚🚚! here you go:"
 ]
 
+GREETS = ["Yo", "Hiii", "Hi", "Hey", "Hello", "Good day", "Good morning", "Good evening", "What's up", "Whats up"]
+
 
 class GameInstance:
     name = ""
@@ -49,14 +51,21 @@ class GameInstance:
 
     activeWord = None
 
-    def __init__(self, player_name):
+    def __init__(self, player_name, answer):
         self.name = player_name
 
-        self.greet()
+        self.greet(answer)
 
-    def greet(self):
-        sendTweet(f"Hello {self.name}! Welcomeeeeeee to the 30 second quiz 🎉🎉 #fun #beatyourfriends do you want to "
-                  f"play?", self.name)
+    def greet(self, answer):
+        greet_word = "Hello"
+        lowercase_answer = answer.lower()
+        for greet in GREETS:
+            if greet.lower() in lowercase_answer:
+                greet_word = greet
+                break
+
+        sendTweet(f"{greet_word}, {self.name}! Welcomeeeeeee to the 30 second quiz 🎉🎉 #fun #beatyourfriends do you "
+                  f"want to play?", self.name)
 
     def participant_answer(self, answer):
         print("PLAYER: " + answer)

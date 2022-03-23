@@ -23,7 +23,7 @@ $ pip install python-twitter
 '''
 
 def twitter_demo():
-    game = GameInstance('Henk')
+    game = GameInstance('Henk', 'Yo, this is the first message that starts the chat, #fun')
     time.sleep(.5)
     game.participant_answer("Yes")
     time.sleep(.5)
