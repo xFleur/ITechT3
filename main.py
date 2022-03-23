@@ -29,7 +29,7 @@ def twitter_demo():
     time.sleep(.5)
     game.participant_answer("No")
     time.sleep(.5)
-    game.participant_answer("Yes")
+    game.participant_answer("Yes please")
     time.sleep(.5)
     game.participant_answer("I am not going to tell you")
     time.sleep(.5)
