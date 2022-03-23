@@ -198,8 +198,6 @@ class GameInstance:
                       f"The first hint that you get is '{self.activeWord.get_random_hint()}'", self.name, answer)
 
     def guess(self, answer):
-        # TODO Maybe add a bit of variation to the answers that the bot can give by randomizing the types of
-        #  responses he can give.
         if self.activeWord.word == answer:
             send_tweet(
                 "That is correct!!! #youarethebest #winnerwinnerchickendinner. That was fun! #gamemeesterRules #no1",
