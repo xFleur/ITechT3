@@ -6,7 +6,7 @@ RANDOM_NAME_1 = GuessWord('henk',
                               "Hij is kaal",
                               "Zijn achternaam is maathuis",
                               "Hij is een steen",
-                              "Hij heeft een echte opa naam"
+                              "Hij heeft een echte opa naam",
                               "Zijn step is geel met blauwe wielen (vet lelijk)",
                           ]
                           )
