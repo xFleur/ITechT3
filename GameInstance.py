@@ -217,7 +217,14 @@ class GameInstance:
             send_tweet(random.choice(CLOSE_ANSWERS), self.name, answer)
             self.currentScore -= 100
         elif "hint" in answer or "tip" in answer:
-            send_tweet(f"{random.choice(HINT_TEXT)} '{self.activeWord.get_random_hint()}'", self.name, answer)
+            hint = self.activeWord.get_random_hint()
+            if hint is not False:
+                send_tweet(f"{random.choice(HINT_TEXT)} '{hint}'", self.name, answer)
+            else:
+                send_tweet(f"I'm sorry, but I do not know any more hints... 😭😭🥲 #isThisIt #tears #sorryNotSorry",
+                           self.name,
+                           answer
+                           )
             self.currentScore -= 1000
         else:
             send_tweet(random.choice(CLOSE_ANSWERS), self.name, answer)
