@@ -2,7 +2,9 @@ import random
 
 from gameTopicsCollection import KID_TOPICS_PLAYGROUND, KID_TOPICS_HOME, \
     ADULT_TOPICS_PIZZA, ADULT_TOPICS_DINNER, ADOLESCENT_TOPICS_MUSIC, ADOLESCENT_TOPICS_NETFLIX, GAME_TOPIC_NATURE, \
-    GAME_TOPIC_TEL_PROGRAMS, GAME_TOPIC_DUTCH_MUSIC, GAME_TOPIC_GEOGRAPHY, GAME_TOPIC_FILMS, GAME_TOPIC_MUSIC
+    GAME_TOPIC_TEL_PROGRAMS, GAME_TOPIC_DUTCH_MUSIC, GAME_TOPIC_GEOGRAPHY, GAME_TOPIC_FILMS, GAME_TOPIC_MUSIC, \
+    GAME_TOPIC_TOYS, GAME_TOPIC_EQUIPMENT, GAME_TOPIC_INSTRUMENTS, GAME_TOPIC_ARTIST, GAME_TOPIC_DRINK, \
+    GAME_TOPIC_FANCY_BRAND
 from helpers import answer_is_yes, tokenize_string, text2int, array_to_sum_of_words
 from sendTweetHandler import send_tweet
 
@@ -215,6 +217,18 @@ class GameInstance:
             selected_topic = GAME_TOPIC_FILMS
         elif "music" in answer:
             selected_topic = GAME_TOPIC_MUSIC
+        elif "toys" in answer:
+            selected_topic = GAME_TOPIC_TOYS
+        elif "fun" in answer or "equipment" in answer:
+            selected_topic = GAME_TOPIC_EQUIPMENT
+        elif "instrument" in answer:
+            selected_topic = GAME_TOPIC_INSTRUMENTS
+        elif "art" in answer:
+            selected_topic = GAME_TOPIC_ARTIST
+        elif "drink" in answer:
+            selected_topic = GAME_TOPIC_DRINK
+        elif "brand" in answer:
+            selected_topic = GAME_TOPIC_FANCY_BRAND
 
         self.activeWord = random.choice(selected_topic)
         if self.activeWord is not None:
@@ -258,5 +272,5 @@ class GameInstance:
             self.currentScore -= 1000
         else:
             print("Lose")
-            send_tweet(f"Try {self.questionNumber}: random.choice(CLOSE_ANSWERS)", self.name, self.tweet_status_id, answer)
+            send_tweet(f"Try {self.questionNumber}: {random.choice(CLOSE_ANSWERS)}", self.name, self.tweet_status_id, answer)
             self.currentScore -= 500
