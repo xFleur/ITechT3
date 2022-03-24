@@ -1,8 +1,8 @@
 import random
 
 from gameTopicsCollection import KID_TOPICS_PLAYGROUND, KID_TOPICS_HOME, \
-    ADULT_TOPICS_PIZZA, ADULT_TOPICS_DINNER, ADOLESCENT_TOPICS_MUSIC, ADOLESCENT_TOPICS_NETFLIX, GAME_TOPIC_NAMES, \
-    GAME_TOPIC_COLORS
+    ADULT_TOPICS_PIZZA, ADULT_TOPICS_DINNER, ADOLESCENT_TOPICS_MUSIC, ADOLESCENT_TOPICS_NETFLIX, GAME_TOPIC_NATURE, \
+    GAME_TOPIC_TEL_PROGRAMS, GAME_TOPIC_DUTCH_MUSIC, GAME_TOPIC_GEOGRAPHY, GAME_TOPIC_FILMS, GAME_TOPIC_MUSIC
 from helpers import answer_is_yes, tokenize_string, text2int, array_to_sum_of_words
 from sendTweetHandler import send_tweet
 
@@ -204,11 +204,18 @@ class GameInstance:
     def pick_category(self, answer):
         selected_topic = []
 
-        # TODO these need to be updated to real topics and topics for adults and adolescents need to be added
-        if "name" in answer:
-            selected_topic = GAME_TOPIC_NAMES
-        elif "color" in answer:
-            selected_topic = GAME_TOPIC_COLORS
+        if "television" in answer:
+            selected_topic = GAME_TOPIC_TEL_PROGRAMS
+        elif "nature" in answer:
+            selected_topic = GAME_TOPIC_NATURE
+        elif "dutch" in answer:
+            selected_topic = GAME_TOPIC_DUTCH_MUSIC
+        elif "geography" in answer:
+            selected_topic = GAME_TOPIC_GEOGRAPHY
+        elif "films" in answer:
+            selected_topic = GAME_TOPIC_FILMS
+        elif "music" in answer:
+            selected_topic = GAME_TOPIC_MUSIC
 
         self.activeWord = random.choice(selected_topic)
         if self.activeWord is not None:
