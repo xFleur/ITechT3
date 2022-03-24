@@ -30,6 +30,27 @@ TEL_PROGRAM_3 = GuessWord('dora',
                            ]
                            )
 
+TOYS_1 = GuessWord('lego',
+                    [
+                        "There are lots of little bricks #brickbybrick 🧱🧱🧱‍",
+                        "They are available in lots of colours: green, yellow, red and blue #colourful 🎨",
+                        "You can build ANYTHING you want: bridges, houses, and more #inventor 🌉",
+                        "There is even a different World where you can build the whooole day #funtimes🌎",
+                        "No inspiration? There are also manuals to build beautiful things! #inspiratonal 📄",
+                    ]
+                    )
+
+TOYS_2 = GuessWord('barbie',
+                    [
+                        "It’s a girl doll #fancy 👩🏼💅‍",
+                        "She has long blonde hairs #letdownyourhair 👩🏼",
+                        "Her boyfriend is called Ken #bf 👨",
+                        "She is also starring in movies #famous 🤩",
+                        "She is going on adventures with her doll friends #bff #twinningiswinning 🌎",
+                    ]
+                    )
+
+
 NATURE_1 = GuessWord('rain',
                           [
                               "It is water #transparent🌊🌊",
@@ -57,6 +78,26 @@ NATURE_3 = GuessWord('earthquake',
                               "Two parts of the world are crashing #boom 💥💣",
                           ]
                           )
+
+FUN_EQUIPMENT_1 = GuessWord('slide',
+                    [
+                        "It is a tube #notthesubway 🚇‍",
+                        "You go from A to B real fast #speed 📐",
+                        "First you need to climb the stairs, before you can go down #climber 🪜",
+                        "Sometimes, you can go down together with friends #funtimes 👫👭👬 ",
+                        "You can also find them at a waterpark #splishsplash ",
+                    ]
+                    )
+
+FUN_EQUIPMENT_2 = GuessWord('trampoline',
+                    [
+                        "You can jump real high! #touchthesky🪂 ‍",
+                        "It is round with a border so that you will always be safe, while jumping 🦘",
+                        "You can do tricks, while jumping #acrobat 🤸‍️",
+                        "It is a real sport #sportive🏁 ",
+                        "To jump on this, you don’t have to be a gymnast #tryitout! 🤸",
+                    ]
+                    )
 
 DUTCH_MUSIC_1 = GuessWord('gebroeders scooter',
                           [
@@ -86,6 +127,16 @@ DUTCH_MUSIC_3 = GuessWord('dries roelvink',
                           ]
                           )
 
+INSTRUMENTS_1 = GuessWord('piano',
+                    [
+                        "This instrument has a lot of keys #overcompensation 🤌‍",
+                        "This instrument has small black and big white keys #pling 🎹",
+                        "This instrument has pedals, which alter the sound #push 🎶",
+                        "This instrument can also be electronic #rock 🤘",
+                        "A famous artist is Ludwig van Beethoven #notthedogmovie 🐶",
+                    ]
+                    )
+
 GEOGRAPHY_1= GuessWord('italy',
                           [
                              "The flag is green, white and red #flaggy🚩🚩🏁",
@@ -113,6 +164,17 @@ GEOGRAPHY_3 = GuessWord('united kingdom',
                             "Telephone boxes surround you #redisnoyellow📞❤️",
                         ]
                         )
+
+ARTIST_1 = GuessWord('vincent van gogh',
+                    [
+                        "The artist is a man 👨‍",
+                        "The artist is a painter #drawing 🖼️",
+                        "The sunflower is a painting of this artist #loveforflowers 💐",
+                        "It is a Dutch man #Dutchie🇳🇱 ",
+                        "His works are presented in a museum in Amsterdam #capitalofNL🇳🇱",
+                    ]
+                    )
+
 
 FILMS_1 = GuessWord('james bond',
                           [
@@ -142,6 +204,17 @@ FILMS_3 = GuessWord('home alone',
                               "Little kid left alone #watchoutforthethiefs 🧒👦",
                           ]
                           )
+
+DRINK_1 = GuessWord('cocktail',
+                    [
+                        "Bartenders love to make this #shakeshake 🤝‍",
+                        "Multiple (non-)alcoholic drinks are mixed #sweet 🍸",
+                        "The drink can be bitter, or very sweet (depending on what you like) #roulette 🍾",
+                        "A drink with lime, mint, sugar, soda and rum #headache 🍹 ",
+                        "Bartenders put in a small colourful umbrella #itsrainingmen ⛱️",
+                    ]
+                    )
+
 MUSIC_1 = GuessWord('michael jackson',
                     [
                         "Also called the “King of pop” #iconsneverdie👑🍾" ,
@@ -163,25 +236,41 @@ MUSIC_2 = GuessWord('whitney houston',
 
 MUSIC_3 = GuessWord('queen',
                     [
-                        "The singer loves showing off #chesthair💁‍💇‍",
+                        "He loves showing off #chesthair💁‍💇‍",
                         "A tiara is not fancy enough for her #crown 👸🏼👸🏼☠️",
-                        "The name is the opposite a King #royals 👑👑",
+                        "It is the opposite a King #royals 👑👑",
                         "We will, we will rock you! #applause 👏",
                         "The last name of the singer is named after a planet #notvenus🎤🎹 ",
                     ]
                     )
 
+
+FANCY_BRAND_1 = GuessWord('rolex',
+                    [
+                        "It is a brand for watches #fancy⌚ ‍",
+                        "This brand can also be seen as a clock at the Formula 1 race #racing 🏎️",
+                        "Loosing track of time #watch ⏰",
+                        "There are a lot of fake products of this brand #fakingit ⏳",
+                        "Most of the jewellers have their products #quality 🤩😮",
+                    ]
+                    )
+
 GAME_TOPIC_TEL_PROGRAMS = [TEL_PROGRAM_1, TEL_PROGRAM_2, TEL_PROGRAM_3]
+GAME_TOPIC_TOYS = [TOYS_1,TOYS_2]
 GAME_TOPIC_NATURE = [NATURE_1, NATURE_2, NATURE_3]
+GAME_TOPIC_EQUIPMENT = [FUN_EQUIPMENT_1,FUN_EQUIPMENT_2]
 GAME_TOPIC_DUTCH_MUSIC = [DUTCH_MUSIC_1, DUTCH_MUSIC_2, DUTCH_MUSIC_3]
-GAME_TOPIC_GEOGRAPHY = [GEOGRAPHY_1, GEOGRAPHY_2,GEOGRAPHY_3]
-GAME_TOPIC_FILMS = [FILMS_1,FILMS_2, FILMS_3]
-GAME_TOPIC_MUSIC = [MUSIC_1,MUSIC_2, MUSIC_3]
+GAME_TOPIC_INSTRUMENTS = [INSTRUMENTS_1]
+GAME_TOPIC_GEOGRAPHY = [GEOGRAPHY_1,GEOGRAPHY_2,GEOGRAPHY_3]
+GAME_TOPIC_ARTIST = [ARTIST_1]
+GAME_TOPIC_FILMS = [FILMS_1,FILMS_2,FILMS_3]
+GAME_TOPIC_DRINK = [DRINK_1]
+GAME_TOPIC_MUSIC = [MUSIC_1,MUSIC_2,MUSIC_3]
+GAME_TOPIC_FANCY_BRAND = [FANCY_BRAND_1]
 
-
-KID_TOPICS_PLAYGROUND = ["nature", ""]
-KID_TOPICS_HOME = ["television", ""]
-ADOLESCENT_TOPICS_NETFLIX = ["geography", ""]
-ADOLESCENT_TOPICS_MUSIC = ["dutch music", ""]
-ADULT_TOPICS_PIZZA = ["films", ""]
-ADULT_TOPICS_DINNER = ["music", ""]
+KID_TOPICS_PLAYGROUND = ["nature", "fun equipment"]
+KID_TOPICS_HOME = ["television", "toys"]
+ADOLESCENT_TOPICS_NETFLIX = ["geography", "art"]
+ADOLESCENT_TOPICS_MUSIC = ["dutch music", "instruments"]
+ADULT_TOPICS_PIZZA = ["films", "drinks"]
+ADULT_TOPICS_DINNER = ["music", "brands"]
