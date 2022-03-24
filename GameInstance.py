@@ -73,7 +73,7 @@ class GameInstance:
     def participant_answer(self, answer, new_status_id):
         self.tweet_status_id = new_status_id
 
-        lowercase_answer = answer.lower()
+        lowercase_answer = answer.lower().replace("@quizmeester ", "")
         if self.gameStatus == GAME_STATUS_INIT and self.questionNumber == 0:
             self.introduce_game(lowercase_answer)
         elif self.gameStatus == GAME_STATUS_INIT and self.questionNumber == 1:
@@ -176,7 +176,6 @@ class GameInstance:
             elif "netflix" in answer:
                 send_tweet("I knew it! Every one likes Netflix! 📺📺 #tellynights", self.name, self.tweet_status_id, answer)
         elif self.playerAgeGroup == USER_ADULT:
-            # TODO Add the responses for adults here.
             if "pizza" in answer:
                 topics = ADULT_TOPICS_PIZZA
                 send_tweet("I love pizza to! I would eat it every day but you've got to stay healthy right? 🏥🍎🍏 ",
@@ -226,7 +225,8 @@ class GameInstance:
 
     def guess(self, answer):
         self.questionNumber += 1
-        if self.activeWord.word == answer:
+        if str(self.activeWord.word) == str(answer):
+            print("Win")
             send_tweet(
                 f"That is correct, and only in {self.questionNumber} tries!!! 🎉🎉🥳💯💯 #youarethebest "
                 f"#winnerwinnerchickendinner. That was fun! #gamemeesterRules #no1",
@@ -240,13 +240,16 @@ class GameInstance:
                 f"Thanks for playing!", self.name, self.tweet_status_id, answer)
             self.gameStatus = GAME_STATUS_DONE
         elif self.activeWord.word in answer:
+            print("almost win")
             send_tweet(f"Try {self.questionNumber}: {random.choice(CLOSE_ANSWERS)}", self.name, self.tweet_status_id, answer)
             self.currentScore -= 100
         elif "hint" in answer or "tip" in answer:
+            print("Hint")
             hint = self.activeWord.get_random_hint()
             if hint is not False:
                 send_tweet(f"Try {self.questionNumber}: {random.choice(HINT_TEXT)} '{hint}'", self.name, self.tweet_status_id, answer)
             else:
+                print("Out of hints")
                 send_tweet(f"Try {self.questionNumber}: I'm sorry, but I do not know any more hints... 😭😭🥲 #isThisIt #tears #sorryNotSorry",
                            self.name,
                            self.tweet_status_id,
@@ -254,5 +257,6 @@ class GameInstance:
                            )
             self.currentScore -= 1000
         else:
+            print("Lose")
             send_tweet(f"Try {self.questionNumber}: random.choice(CLOSE_ANSWERS)", self.name, self.tweet_status_id, answer)
             self.currentScore -= 500
