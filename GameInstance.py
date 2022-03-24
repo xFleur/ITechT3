@@ -1,8 +1,8 @@
 import random
 
 from gameTopicsCollection import KID_TOPICS_PLAYGROUND, KID_TOPICS_HOME, \
-    ADULT_TOPICS_PIZZA, ADULT_TOPICS_DINNER, ADOLESCENT_TOPICS_MUSIC, ADOLESCENT_TOPICS_NETFLIX, GAME_TOPIC_NAMES, \
-    GAME_TOPIC_COLORS
+    ADULT_TOPICS_PIZZA, ADULT_TOPICS_DINNER, ADOLESCENT_TOPICS_MUSIC, ADOLESCENT_TOPICS_NETFLIX, GAME_TOPIC_NATURE, \
+    GAME_TOPIC_TEL_PROGRAMS, GAME_TOPIC_DUTCH_MUSIC, GAME_TOPIC_GEOGRAPHY, GAME_TOPIC_FILMS, GAME_TOPIC_MUSIC
 from helpers import answer_is_yes, tokenize_string, text2int, array_to_sum_of_words
 from sendTweetHandler import send_tweet
 
@@ -73,7 +73,7 @@ class GameInstance:
     def participant_answer(self, answer, new_status_id):
         self.tweet_status_id = new_status_id
 
-        lowercase_answer = answer.lower()
+        lowercase_answer = answer.lower().replace("@quizmeester ", "")
         if self.gameStatus == GAME_STATUS_INIT and self.questionNumber == 0:
             self.introduce_game(lowercase_answer)
         elif self.gameStatus == GAME_STATUS_INIT and self.questionNumber == 1:
@@ -176,7 +176,6 @@ class GameInstance:
             elif "netflix" in answer:
                 send_tweet("I knew it! Every one likes Netflix! 📺📺 #tellynights", self.name, self.tweet_status_id, answer)
         elif self.playerAgeGroup == USER_ADULT:
-            # TODO Add the responses for adults here.
             if "pizza" in answer:
                 topics = ADULT_TOPICS_PIZZA
                 send_tweet("I love pizza to! I would eat it every day but you've got to stay healthy right? 🏥🍎🍏 ",
@@ -204,11 +203,18 @@ class GameInstance:
     def pick_category(self, answer):
         selected_topic = []
 
-        # TODO these need to be updated to real topics and topics for adults and adolescents need to be added
-        if "name" in answer:
-            selected_topic = GAME_TOPIC_NAMES
-        elif "color" in answer:
-            selected_topic = GAME_TOPIC_COLORS
+        if "television" in answer:
+            selected_topic = GAME_TOPIC_TEL_PROGRAMS
+        elif "nature" in answer:
+            selected_topic = GAME_TOPIC_NATURE
+        elif "dutch" in answer:
+            selected_topic = GAME_TOPIC_DUTCH_MUSIC
+        elif "geography" in answer:
+            selected_topic = GAME_TOPIC_GEOGRAPHY
+        elif "films" in answer:
+            selected_topic = GAME_TOPIC_FILMS
+        elif "music" in answer:
+            selected_topic = GAME_TOPIC_MUSIC
 
         self.activeWord = random.choice(selected_topic)
         if self.activeWord is not None:
@@ -219,7 +225,8 @@ class GameInstance:
 
     def guess(self, answer):
         self.questionNumber += 1
-        if self.activeWord.word == answer:
+        if str(self.activeWord.word) == str(answer):
+            print("Win")
             send_tweet(
                 f"That is correct, and only in {self.questionNumber} tries!!! 🎉🎉🥳💯💯 #youarethebest "
                 f"#winnerwinnerchickendinner. That was fun! #gamemeesterRules #no1",
@@ -233,13 +240,16 @@ class GameInstance:
                 f"Thanks for playing!", self.name, self.tweet_status_id, answer)
             self.gameStatus = GAME_STATUS_DONE
         elif self.activeWord.word in answer:
+            print("almost win")
             send_tweet(f"Try {self.questionNumber}: {random.choice(CLOSE_ANSWERS)}", self.name, self.tweet_status_id, answer)
             self.currentScore -= 100
         elif "hint" in answer or "tip" in answer:
+            print("Hint")
             hint = self.activeWord.get_random_hint()
             if hint is not False:
                 send_tweet(f"Try {self.questionNumber}: {random.choice(HINT_TEXT)} '{hint}'", self.name, self.tweet_status_id, answer)
             else:
+                print("Out of hints")
                 send_tweet(f"Try {self.questionNumber}: I'm sorry, but I do not know any more hints... 😭😭🥲 #isThisIt #tears #sorryNotSorry",
                            self.name,
                            self.tweet_status_id,
@@ -247,5 +257,6 @@ class GameInstance:
                            )
             self.currentScore -= 1000
         else:
+            print("Lose")
             send_tweet(f"Try {self.questionNumber}: random.choice(CLOSE_ANSWERS)", self.name, self.tweet_status_id, answer)
             self.currentScore -= 500

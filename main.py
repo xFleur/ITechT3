@@ -38,12 +38,12 @@ class TweetFetcher:
     last_tweet_id = 0
     game = None
     first_tweet = False
+    games = dict()
 
     def __init__(self):
         self.fetch_tweets()
 
     def fetch_tweets(self):
-
         threading.Timer(10.0, self.fetch_tweets).start()
         mentions = api.GetMentions()
         tweet = mentions[0]
@@ -60,14 +60,15 @@ class TweetFetcher:
 
             print("Nieuwe tweet ontvangen")
             print(tweet.text)
+            print(self.games)
 
             if user_has_session(screen_name):
                 print(user_has_session(screen_name))
-                print(list_of_users)
-                self.game.participant_answer(tweet.text, mentions[0].id)
+                self.games[screen_name].participant_answer(tweet.text, mentions[0].id)
             else:
                 list_of_users.append(screen_name)
-                self.game = GameInstance(screen_name, tweet.text, mentions[0].id)
+                self.games[screen_name] = GameInstance(screen_name, tweet.text, mentions[0].id)
+                print(list_of_users)
 
         self.last_tweet_id = mentions[0].id
 

@@ -30,7 +30,7 @@ TEL_PROGRAM_3 = GuessWord('dora',
                            ]
                            )
 
-NATURE_1 = GuessWord('Rain',
+NATURE_1 = GuessWord('rain',
                           [
                               "It is water #transparent🌊🌊",
                               "You don’t want to cycle when this happens #gettingwet 🌧️⛈",
@@ -39,7 +39,7 @@ NATURE_1 = GuessWord('Rain',
                               "You would want to wear a different coat for this kind of weather #beautiful🧥❤️",
                           ]
                           )
-NATURE_2 = GuessWord('Thunder',
+NATURE_2 = GuessWord('thunder',
                           [
                               "It is a flash of light #kapow ⚡🌩️🚨 ",
                               "It is dangerous to cycle when this happens #lightning 🌦️🌂 ",
@@ -48,7 +48,7 @@ NATURE_2 = GuessWord('Thunder',
                               "Be aware of water, when you are standing outside #avoid 🏕️🥾 ",
                           ]
                           )
-NATURE_3 = GuessWord('Earthquake',
+NATURE_3 = GuessWord('earthquake',
                           [
                               "Shaking due to waves #notwater 🤝🏄",
                               "The world is shaking #leftright🌍 ",
@@ -104,7 +104,7 @@ GEOGRAPHY_2 = GuessWord('netherlands',
                             "Tall people also matter #help 👥🆘",
                         ]
                         )
-GEOGRAPHY_3 = GuessWord('United Kingdom',
+GEOGRAPHY_3 = GuessWord('united kingdom',
                         [
                             "Standing in a queue is a great hobby #waitingnohating 👬👬👬👬👬👬",
                             "Overly polite people #pleasethankyou🥺🙏 ",
@@ -114,7 +114,7 @@ GEOGRAPHY_3 = GuessWord('United Kingdom',
                         ]
                         )
 
-FILMS_1 = GuessWord('James Bond',
+FILMS_1 = GuessWord('james bond',
                           [
                               "The main character was created by Ian Fleming #greatman 🕴️🧳",
                               "He liked his martinis #shakennotstirred🍸",
@@ -142,7 +142,7 @@ FILMS_3 = GuessWord('home alone',
                               "Little kid left alone #watchoutforthethiefs 🧒👦",
                           ]
                           )
-MUSIC_1 = GuessWord('Michael Jackson',
+MUSIC_1 = GuessWord('michael jackson',
                     [
                         "Also called the “King of pop” #iconsneverdie👑🍾" ,
                         "Be careful of the zombies #thrilledaboutlife 🧟‍🧟️",
@@ -151,7 +151,7 @@ MUSIC_1 = GuessWord('Michael Jackson',
                         "Started out as part of the Jackson Brothers #bros 😎👊",
                     ]
                     )
-MUSIC_2 = GuessWord('Whitney Houston',
+MUSIC_2 = GuessWord('whitney houston',
                     [
                         "She was the best-selling female R&B artist of the 20th century #winning🤵️👨‍🎨",
                         "She just wants to dance with someone #feeltheheat👯️👯‍",
@@ -161,11 +161,11 @@ MUSIC_2 = GuessWord('Whitney Houston',
                     ]
                     )
 
-MUSIC_3 = GuessWord('Queen',
+MUSIC_3 = GuessWord('queen',
                     [
-                        "He loves showing off #chesthair💁‍💇‍",
+                        "The singer loves showing off #chesthair💁‍💇‍",
                         "A tiara is not fancy enough for her #crown 👸🏼👸🏼☠️",
-                        "It is the opposite a King #royals 👑👑",
+                        "The name is the opposite a King #royals 👑👑",
                         "We will, we will rock you! #applause 👏",
                         "The last name of the singer is named after a planet #notvenus🎤🎹 ",
                     ]
@@ -174,9 +174,9 @@ MUSIC_3 = GuessWord('Queen',
 GAME_TOPIC_TEL_PROGRAMS = [TEL_PROGRAM_1, TEL_PROGRAM_2, TEL_PROGRAM_3]
 GAME_TOPIC_NATURE = [NATURE_1, NATURE_2, NATURE_3]
 GAME_TOPIC_DUTCH_MUSIC = [DUTCH_MUSIC_1, DUTCH_MUSIC_2, DUTCH_MUSIC_3]
-GAME_TOPIC_GEOGRAPHY = [GEOGRAPHY_1,GEOGRAPHY_2,GEOGRAPHY_3]
-GAME_TOPIC_FILMS = [FILMS_1,FILMS_2,FILMS_3]
-GAME_TOPIC_MUSIC = [MUSIC_1,MUSIC_2,MUSIC_3]
+GAME_TOPIC_GEOGRAPHY = [GEOGRAPHY_1, GEOGRAPHY_2,GEOGRAPHY_3]
+GAME_TOPIC_FILMS = [FILMS_1,FILMS_2, FILMS_3]
+GAME_TOPIC_MUSIC = [MUSIC_1,MUSIC_2, MUSIC_3]
 
 
 KID_TOPICS_PLAYGROUND = ["nature", ""]
