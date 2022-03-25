@@ -1,5 +1,6 @@
 from GuessWord import GuessWord
 
+# All the words that the user can guess with the hints.
 TEL_PROGRAM_1 = GuessWord('peppa pig',
                           [
                               "The animal has the colour pink #myfavouritecolour 💖",
@@ -254,6 +255,7 @@ FANCY_BRAND_1 = GuessWord('rolex',
                     ]
                     )
 
+# The collections of words that can be guessed.
 GAME_TOPIC_TEL_PROGRAMS = [TEL_PROGRAM_1, TEL_PROGRAM_2, TEL_PROGRAM_3]
 GAME_TOPIC_TOYS = [TOYS_1,TOYS_2]
 GAME_TOPIC_NATURE = [NATURE_1, NATURE_2, NATURE_3]
@@ -267,6 +269,7 @@ GAME_TOPIC_DRINK = [DRINK_1]
 GAME_TOPIC_MUSIC = [MUSIC_1,MUSIC_2,MUSIC_3]
 GAME_TOPIC_FANCY_BRAND = [FANCY_BRAND_1]
 
+# The names of the topics in text.
 KID_TOPICS_PLAYGROUND = ["nature", "fun equipment"]
 KID_TOPICS_HOME = ["television", "toys"]
 ADOLESCENT_TOPICS_NETFLIX = ["geography", "art"]

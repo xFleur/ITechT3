@@ -1,6 +1,4 @@
 #!/usr/bin/python
-import subprocess
-import time
 import twitter  # for docs, see https://python-twitter.readthedocs.io/en/latest/twitter.html
 import threading
 from GameInstance import GameInstance
@@ -29,7 +27,7 @@ api = twitter.Api(consumer_key='xUphY2Q8YcgvAPJdnAQi3fPMx',
                   access_token_key='1504001914530373638-AL3OwiZjx2UaV9EfMOtGpg9GFPyYBG',
                   access_token_secret='Er8q5Z0uz5ZX4tyjjyMoPk31S51uqgd19v8CX2VV1AuJR')
 
-
+# Check if the user is already playing.
 def user_has_session(name):
     return name in list_of_users
 
@@ -44,56 +42,39 @@ class TweetFetcher:
         self.fetch_tweets()
 
     def fetch_tweets(self):
+        # Fetch the tweets every 10 seconds.
         threading.Timer(10.0, self.fetch_tweets).start()
+
+        # Get the tweets which we were mentioned in.
         mentions = api.GetMentions()
+
+        # Get the last tweet.
         tweet = mentions[0]
 
+        # Check if we already had a tweet and initialize variables correctly if this was the first tweet..
         if not self.first_tweet:
             self.first_tweet = True
             self.last_tweet_id = mentions[0].id
             return
 
+        # Check if the tweet is new.
         if tweet.id != self.last_tweet_id:
+            # Get the user informatino if the tweet is new.
             uid = tweet.user.id
             user = api.GetUser(user_id=uid)
             screen_name = user.screen_name
 
-            print("Nieuwe tweet ontvangen")
             print(tweet.text)
-            print(self.games)
 
+            # If the user is already playing, answer the correct instance.
             if user_has_session(screen_name):
-                print(user_has_session(screen_name))
                 self.games[screen_name].participant_answer(tweet.text, mentions[0].id)
+            # If the user was not playing yet, create a new instance for this player.
             else:
                 list_of_users.append(screen_name)
                 self.games[screen_name] = GameInstance(screen_name, tweet.text, mentions[0].id)
-                print(list_of_users)
 
         self.last_tweet_id = mentions[0].id
 
 
 TweetFetcher()
-
-# def twitter_demo():
-#     # game = GameInstance('Henk', 'Yo, this is the first message that starts the chat, #fun')
-#     status_id_test = 1506562629917155328
-#     tweet = api.GetStatus(status_id=1506562629917155328, trim_user=True)
-#     print(tweet.text)
-#     uid = tweet.user.id
-#     user = api.GetUser(user_id=uid)
-#     screen_name = user.screen_name
-#
-#
-#
-#     while True:
-#         try:
-#             input_string = input()
-#             game.participant_answer(input_string, 1506562629917155328)
-#         except Exception as e:
-#             print("Error:", e)
-#
-#     def getMentions():
-#         return api.GetMentions()
-#
-# # twitter_demo()

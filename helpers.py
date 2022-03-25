@@ -1,6 +1,6 @@
 import nltk
 
-
+# Check if the answer is a yes.
 def answer_is_yes(answer):
     lowercase_answer = answer.lower()
     if "yes" in lowercase_answer or "okay" in lowercase_answer or "sure" in lowercase_answer:
@@ -9,15 +9,18 @@ def answer_is_yes(answer):
         return False
 
 
+# Turns an array into a proper text list. example ["1", "2", "3"] => 1, 2 or 3
 def array_to_sum_of_words(array_of_strings):
     return ", ".join(array_of_strings[:-2] + [" or ".join(array_of_strings[-2:])])
 
 
+# Turns a string into tokens
 def tokenize_string(string):
     tknzr = nltk.tokenize.TweetTokenizer()
     return tknzr.tokenize(string)
 
 
+# Casts numbers in letters to actual numbers, like "seventeen" => 17
 def text2int(textnum, numwords={}):
     if type(textnum) == "Int":
         return textnum
