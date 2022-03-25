@@ -1,6 +1,5 @@
 from GuessWord import GuessWord
 
-# TODO all these cases are test cases. They need to be redone with actual content.
 TEL_PROGRAM_1 = GuessWord('peppa pig',
                           [
                               "The animal has the colour pink #myfavouritecolour 💖",

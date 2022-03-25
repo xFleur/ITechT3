@@ -258,5 +258,5 @@ class GameInstance:
             self.currentScore -= 1000
         else:
             print("Lose")
-            send_tweet(f"Try {self.questionNumber}: random.choice(CLOSE_ANSWERS)", self.name, self.tweet_status_id, answer)
+            send_tweet(f"Try {self.questionNumber}: {random.choice(CLOSE_ANSWERS)}", self.name, self.tweet_status_id, answer)
             self.currentScore -= 500

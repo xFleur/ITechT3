@@ -1,5 +1,3 @@
-# TODO handle the sending of tweets. This is also the place where we
-#   would catch errors and handle them when something goes wrong.
 import random
 import twitter
 
@@ -22,7 +20,6 @@ def send_tweet(tweet_string, name, status_id, message=""):
     polite_string = ""
     if message_is_polite(message):
         polite_string = random.choice(POLITE_RESPONSES)
-    print()
     body = "@" + name + " " + polite_string + tweet_string
     print(body)
     api.PostUpdate(body, in_reply_to_status_id=status_id, auto_populate_reply_metadata=True)
