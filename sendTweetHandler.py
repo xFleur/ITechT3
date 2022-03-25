@@ -14,10 +14,10 @@ POLITE_RESPONSES = [
 ]
 
 # reinitialize API.
-api = twitter.Api(consumer_key='xUphY2Q8YcgvAPJdnAQi3fPMx',
-                  consumer_secret='M8fwf4s7jcTNzZzZhDyDqJhSAs2AmGDVNcw0LyIjEYyNrWz7yf',
-                  access_token_key='1504001914530373638-AL3OwiZjx2UaV9EfMOtGpg9GFPyYBG',
-                  access_token_secret='Er8q5Z0uz5ZX4tyjjyMoPk31S51uqgd19v8CX2VV1AuJR')
+api = twitter.Api(consumer_key='',
+                  consumer_secret='',
+                  access_token_key='',
+                  access_token_secret='')
 
 
 def send_tweet(tweet_string, name, status_id, message=""):

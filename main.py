@@ -4,12 +4,6 @@ import threading
 from GameInstance import GameInstance
 
 '''
-USE AT YOUR OWN PERIL <3
-fill in your API keys before running the script
-written in Python3 by Judith van Stegeren, @jd7h
-'''
-
-'''
 before running the script, do this:
 1. create a virtual environment
 $ python -m venv venv
@@ -22,10 +16,10 @@ $ pip install python-twitter
 
 list_of_users = []
 
-api = twitter.Api(consumer_key='xUphY2Q8YcgvAPJdnAQi3fPMx',
-                  consumer_secret='M8fwf4s7jcTNzZzZhDyDqJhSAs2AmGDVNcw0LyIjEYyNrWz7yf',
-                  access_token_key='1504001914530373638-AL3OwiZjx2UaV9EfMOtGpg9GFPyYBG',
-                  access_token_secret='Er8q5Z0uz5ZX4tyjjyMoPk31S51uqgd19v8CX2VV1AuJR')
+api = twitter.Api(consumer_key='',
+                  consumer_secret='',
+                  access_token_key='',
+                  access_token_secret='')
 
 # Check if the user is already playing.
 def user_has_session(name):
